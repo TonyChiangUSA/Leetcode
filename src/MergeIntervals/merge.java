@@ -1,11 +1,8 @@
 package MergeIntervals;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class merge {
-
 
     public static int[][] merge(int[][] intervals) {
         if(intervals==null || intervals[0].length==0) return intervals;
@@ -31,7 +28,7 @@ public class merge {
                 res.add(intervals[i]);
             }
         }
-
+        
         int[][] resMatrix=new int[res.size()][];
         for(int i=0;i<res.size();i++){
             resMatrix[i]=res.get(i);
