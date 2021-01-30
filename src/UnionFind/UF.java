@@ -1,5 +1,6 @@
 package UnionFind;
 
+
 public class UF {
     int[] root;
     //union by size 把节点较少的树合并到节点较多的集合

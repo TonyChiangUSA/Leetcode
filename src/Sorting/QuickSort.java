@@ -30,22 +30,24 @@ public class QuickSort {
 
     private  static void quickSort(int[] nums, int l, int r){
         if(l>=r) return;
-        int mid=partition(nums,l,r);
-        quickSort(nums,l,mid);
-        quickSort(nums,mid+1,r);
+        int pivot=partition(nums,l,r);
+        quickSort(nums,l,pivot-1);
+        quickSort(nums,pivot+1,r);
 
     }
 
-    private static int partition(int[] nums, int l, int r){
-        int pivot=nums[l];
-        while (l<r){
-            while (l<r && nums[r]>=pivot) r--;
-            nums[l]=nums[r];
-            while (l<r && nums[l]<=pivot) l++;
-            nums[r]=nums[l];
+    // Lomuto partition algorithm
+    private static int partition(int[] nums, int low, int high) {
+        int left = low;
+        int pivot = nums[high];
+        for( int i = left; i < high; ++i) {
+            if( nums[i] <= pivot) {
+                swap(nums, i , left);
+                left++;
+            }
         }
-        nums[l]=pivot;
-        return l;
+        swap(nums, left, high);
+        return left;
     }
 
 
